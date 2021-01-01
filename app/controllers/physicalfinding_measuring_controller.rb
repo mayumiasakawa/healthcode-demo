@@ -1,0 +1,2 @@
+class PhysicalfindingMeasuringController < ApplicationController
+end
