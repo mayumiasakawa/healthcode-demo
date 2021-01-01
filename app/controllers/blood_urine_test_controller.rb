@@ -1,0 +1,2 @@
+class BloodUrineTestController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class PhysicalfindingMeasuring < ApplicationRecord
+end

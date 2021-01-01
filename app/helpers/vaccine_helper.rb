@@ -1,0 +1,2 @@
+module VaccineHelper
+end

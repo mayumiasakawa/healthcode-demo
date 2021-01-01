@@ -1,0 +1,2 @@
+module BloodUrineTestHelper
+end
