@@ -1,6 +1,6 @@
 class PhysicalfindingMeasuringController < ApplicationController
 
-  def new_physicalfinding
+  def new
     @overview = Overview.new
   end
 
