@@ -1,6 +1,8 @@
 class CreatePhysicalfindingMeasurings < ActiveRecord::Migration[6.0]
   def change
     create_table :physicalfinding_measurings do |t|
+      t.integer :user_id
+      t.integer :overview_id
       t.date :physicalfinding_measuring_date
       t.integer :weight
       t.integer :height
