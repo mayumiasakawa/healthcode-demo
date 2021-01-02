@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'overviews#index'
   resources :overviews do
-    member do
-      get 'physicalfinding'
-      get 'bloodurine'
-      get 'medicalcare'
-      get 'vaccine'
-    end
+    resources :physicalfinding_measurings, only: :create
+    resources :blood_urine_tests, only: :create
+    resources :medical_cares, only: :create
+    resources :vaccines, only: :create
   end
 end
