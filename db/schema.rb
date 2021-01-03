@@ -54,18 +54,6 @@ ActiveRecord::Schema.define(version: 2021_01_01_132401) do
 
   create_table "overviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.date "physicalfinding_measuring_date"
-    t.integer "weight"
-    t.integer "height"
-    t.integer "bmi"
-    t.integer "abdominal_circumference"
-    t.date "blood_urine_test_date"
-    t.date "medical_care_date"
-    t.string "clinic_name"
-    t.string "disease_name"
-    t.string "treatment_medicine"
-    t.date "vaccine_date"
-    t.integer "vaccine_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_overviews_on_user_id"
