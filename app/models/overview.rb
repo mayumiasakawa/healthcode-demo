@@ -7,6 +7,4 @@ class Overview < ApplicationRecord
   has_many :medical_cares
   has_many :vaccines
   
-  belongs_to_active_hash :vaccine
-
 end
