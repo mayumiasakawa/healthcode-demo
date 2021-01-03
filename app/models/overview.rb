@@ -13,9 +13,7 @@ class Overview < ApplicationRecord
 
   
   with_options presence: true do
-     
-    validates :blood_urine_test_date,if: :was_attached?
-    validates :image,if: -> { blood_urine_test_date.present? }
+
               
     validates :medical_care_date,
                if: -> { (clinic_name.present? && disease_name.present? && treatment_medicine.present?) ||
