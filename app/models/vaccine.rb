@@ -1,4 +1,4 @@
 class Vaccine < ApplicationRecord
-  belong_to :user
-  belong_to :overview
+  belongs_to :user
+  belongs_to :overview
 end
