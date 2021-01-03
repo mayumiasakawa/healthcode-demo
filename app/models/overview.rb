@@ -9,14 +9,4 @@ class Overview < ApplicationRecord
   
   belongs_to_active_hash :vaccine
 
-  has_one_attached :image
-
-  
-
-
-  def was_attached?
-    self.image.attached?
-  end
-
-
 end
