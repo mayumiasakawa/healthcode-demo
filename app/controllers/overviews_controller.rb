@@ -79,10 +79,10 @@ class OverviewsController < ApplicationController
 
   def set_chart
     if user_signed_in?
-      physicalfinding_measuring_date = Overview.where.not(physicalfinding_measuring_date:nil).where(user_id: current_user.id).order(physicalfinding_measuring_date: :asc).pluck(:physicalfinding_measuring_date)
-      weight = Overview.where.not(physicalfinding_measuring_date:nil).where(user_id: current_user.id).order(physicalfinding_measuring_date: :asc).pluck(:weight)
-      bmi = Overview.where.not(physicalfinding_measuring_date:nil).where(user_id: current_user.id).order(physicalfinding_measuring_date: :asc).pluck(:bmi)
-      abdominal_circumference = Overview.where.not(physicalfinding_measuring_date:nil).where(user_id: current_user.id).order(physicalfinding_measuring_date: :asc).pluck(:abdominal_circumference)
+      physicalfinding_measuring_date = PhysicalfindingMeasuring.where.not(physicalfinding_measuring_date:nil).where(user_id: current_user.id).order(physicalfinding_measuring_date: :asc).pluck(:physicalfinding_measuring_date)
+      weight = PhysicalfindingMeasuring.where.not(physicalfinding_measuring_date:nil).where(user_id: current_user.id).order(physicalfinding_measuring_date: :asc).pluck(:weight)
+      bmi = PhysicalfindingMeasuring.where.not(physicalfinding_measuring_date:nil).where(user_id: current_user.id).order(physicalfinding_measuring_date: :asc).pluck(:bmi)
+      abdominal_circumference = PhysicalfindingMeasuring.where.not(physicalfinding_measuring_date:nil).where(user_id: current_user.id).order(physicalfinding_measuring_date: :asc).pluck(:abdominal_circumference)
 
       @chart = LazyHighCharts::HighChart.new("graph") do |c|
         # c.title(text: "体重・腹囲 推移")
@@ -96,19 +96,19 @@ class OverviewsController < ApplicationController
   end
 
   def overview_physicalfinding_measuring
-    @overview_physicalfinding_measurings = Overview.includes(:user).where.not(physicalfinding_measuring_date:nil).order(physicalfinding_measuring_date: :desc).where(params[:id])
+    @overview_physicalfinding_measurings = PhysicalfindingMeasuring.includes(:user).where.not(physicalfinding_measuring_date:nil).order(physicalfinding_measuring_date: :desc).where(params[:id])
   end
 
   def overview_blood_urine_test
-    @overview_blood_urine_tests = Overview.includes(:user).where.not(blood_urine_test_date:nil).order(blood_urine_test_date: :desc).where(params[:id])
+    @overview_blood_urine_tests = BloodUrineTest.includes(:user).where.not(blood_urine_test_date:nil).order(blood_urine_test_date: :desc).where(params[:id])
   end
 
   def overview_medical_care
-    @overview_medical_cares = Overview.includes(:user).where.not(medical_care_date:nil).order(medical_care_date: :desc).where(params[:id])
+    @overview_medical_cares = MedicalCare.includes(:user).where.not(medical_care_date:nil).order(medical_care_date: :desc).where(params[:id])
   end
 
   def overview_vaccines
-    @overview_vaccines = Overview.includes(:user).where.not(vaccine_date:nil).order(vaccine_date: :desc).where(params[:id])
+    @overview_vaccines = Vaccine.includes(:user).where.not(vaccine_date:nil).order(vaccine_date: :desc).where(params[:id])
   end
 
 end
