@@ -1,6 +1,6 @@
 class PhysicalfindingMeasuring < ApplicationRecord
-  belong_to :user
-  belong_to :overview
+  belongs_to :user
+  belongs_to :overview
 
   has_many :physicalfinding_measurings
   has_many :blood_urine_tests
