@@ -17,9 +17,8 @@
                   <h1 class="h4 mb-0 text-gray-800 ml-3">身長・体重・腹囲・BMI 登録</h1>
                 </div>
 
-                  <%= form_with model: @overview, url: overviews_path, class: 'user',name: 'form', local: true do |f| %> 
+                  <%= form_with model: @physicalfindingmeasuring, url:  overview_physicalfinding_measurings_path, class: 'user',name: 'form', local: true do |f| %> 
                     
-                    <%= render 'shared/error_messages', model: f.object %>
                     <div class="form-group ml-4">
                         <div class='input-date-wrap'>
                           <label>測定日</label>
