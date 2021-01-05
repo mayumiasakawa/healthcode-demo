@@ -1,7 +1,8 @@
 class Vaccine < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
   belongs_to :overview
-  belong_to_active_hash :vaccine
+  belongs_to_active_hash :vaccine
 
   with_options presence: true do
     validates :vaccine_date,if: -> { physicalfinding_measuring_date.blank? && blood_urine_test_date.blank? && medical_care_date.blank? },

@@ -5,7 +5,7 @@ class PhysicalfindingMeasuringsController < ApplicationController
   end
 
   def create
-    @physicalfindingmeasuring = PhysicalfindingMeasuring.create(overview_params)
+    @physicalfindingmeasuring = PhysicalfindingMeasuring.create(physicalfindingmeasuring_params)
     if @physicalfindingmeasuring.valid?
       @physicalfindingmeasuring.save
       redirect_to root_path
@@ -16,7 +16,7 @@ class PhysicalfindingMeasuringsController < ApplicationController
 
   private
 
-  def overviews_pamars
-   params.require(:physicalfindingmeasuring).permit(:physicalfinding_measuring_date, :height, :weight, :abdominal_circumference,:bmi).merge(user_id: current_user.id, oveivew_id: params[:overview_id])
+  def physicalfindingmeasuring_params
+   params.require(:physicalfinding_measuring).permit(:physicalfinding_measuring_date, :height, :weight, :abdominal_circumference,:bmi).merge(user_id: current_user.id, overivew_id: params[:overivew_id])
   end
 end
