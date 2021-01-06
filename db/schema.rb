@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_01_132401) do
+ActiveRecord::Schema.define(version: 2021_01_06_062704) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,23 +33,27 @@ ActiveRecord::Schema.define(version: 2021_01_01_132401) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "blood_urine_tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "overview_id"
+  create_table "bloods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "overview_id", null: false
     t.date "blood_urine_test_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["overview_id"], name: "index_bloods_on_overview_id"
+    t.index ["user_id"], name: "index_bloods_on_user_id"
   end
 
-  create_table "medical_cares", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "overview_id"
+  create_table "medicalcares", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "overview_id", null: false
     t.date "medical_care_date"
     t.string "clinic_name"
     t.string "disease_name"
     t.string "treatment_medicine"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["overview_id"], name: "index_medicalcares_on_overview_id"
+    t.index ["user_id"], name: "index_medicalcares_on_user_id"
   end
 
   create_table "overviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,9 +63,9 @@ ActiveRecord::Schema.define(version: 2021_01_01_132401) do
     t.index ["user_id"], name: "index_overviews_on_user_id"
   end
 
-  create_table "physicalfinding_measurings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "overview_id"
+  create_table "physicals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "overview_id", null: false
     t.date "physicalfinding_measuring_date"
     t.integer "weight"
     t.integer "height"
@@ -69,6 +73,8 @@ ActiveRecord::Schema.define(version: 2021_01_01_132401) do
     t.integer "abdominal_circumference"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["overview_id"], name: "index_physicals_on_overview_id"
+    t.index ["user_id"], name: "index_physicals_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,14 +95,24 @@ ActiveRecord::Schema.define(version: 2021_01_01_132401) do
   end
 
   create_table "vaccines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "overview_id"
+    t.bigint "user_id", null: false
+    t.bigint "overview_id", null: false
     t.date "vaccine_date"
     t.integer "vaccine_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["overview_id"], name: "index_vaccines_on_overview_id"
+    t.index ["user_id"], name: "index_vaccines_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bloods", "overviews"
+  add_foreign_key "bloods", "users"
+  add_foreign_key "medicalcares", "overviews"
+  add_foreign_key "medicalcares", "users"
   add_foreign_key "overviews", "users"
+  add_foreign_key "physicals", "overviews"
+  add_foreign_key "physicals", "users"
+  add_foreign_key "vaccines", "overviews"
+  add_foreign_key "vaccines", "users"
 end
