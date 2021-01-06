@@ -5,10 +5,11 @@ class OverviewsController < ApplicationController
   
 
   def index
+    @overview = Overview.new
+    @overviews = Overview.includes(:user).order("created_at DESC")
   end
 
   def new
-    Overview.new
   end
 
   def create

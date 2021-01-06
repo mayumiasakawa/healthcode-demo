@@ -22,5 +22,4 @@ class User < ApplicationRecord
 
   validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }, confirmation: true
   validates :email, presence: true, uniqueness: true, format: { with:VALID_EMAIL_REGEX, message: 'is invalid. Format is not.' }
-  validates :birthday, presence: true
 end
