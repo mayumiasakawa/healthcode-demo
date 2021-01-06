@@ -1,0 +1,2 @@
+class MedicalcaresController < ApplicationController
+end

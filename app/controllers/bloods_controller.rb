@@ -1,0 +1,2 @@
+class BloodsController < ApplicationController
+end
