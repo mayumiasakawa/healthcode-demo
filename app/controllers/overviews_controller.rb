@@ -1,61 +1,20 @@
 class OverviewsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy, :physicalfinding, :bloodurine, :medicalcare, :vaccine]
+  before_action :authenticate_user!
   before_action :move_to_index, except: [:index]
   before_action :set_overview, only: [:edit, :update, :destroy]
-  before_action :set_chart, only: [:index, :physicalfinding]
-  before_action :overview_physicalfinding_measuring, only: [:index, :physicalfinding]
-  before_action :overview_blood_urine_test, only: [:index, :bloodurine]
-  before_action :overview_medical_care, only: [:index, :medicalcare]
-  before_action :overview_vaccines, only: [:index, :vaccine]
   
 
   def index
   end
 
+  def new
+    Overview.new
+  end
+
   def create
-    @overview = Overview.create(overview_params)
-    if @overview.valid?
-      @overview.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    Overview.create(overview_params)
   end
 
-  def edit
-    unless current_user == @overview.user
-      redirect_to root_path
-    end
-  end
-
-  def update
-    if @overview.update(overview_params)
-      @overview.save
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    if @overview.destroy
-      redirect_to root_path
-    else
-      render :show
-    end
-  end
-
-  def physicalfinding
-  end
-
-  def bloodurine
-  end
-
-  def medicalcare
-  end
-
-  def vaccine
-  end
 
   private
 
@@ -67,6 +26,10 @@ class OverviewsController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def overview_params
+    params.require(:overview).merge(user_id: current_user.id)
   end
 
   def set_overview
