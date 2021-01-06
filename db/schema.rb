@@ -59,9 +59,12 @@ ActiveRecord::Schema.define(version: 2021_01_06_062704) do
   create_table "overviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "birthday"
-    t.string "allergy"
+    t.integer "allergy"
+    t.string "allergy_type"
     t.integer "cigarette"
+    t.integer "cigarette_amount"
     t.integer "alcohol"
+    t.integer "alcohol_amout"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_overviews_on_user_id"
