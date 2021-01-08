@@ -13,7 +13,7 @@ class OverviewsController < ApplicationController
   end
 
   def create
-    Overview.create(overview_params)
+    @overview = Overview.create(overview_params)
   end
 
 
