@@ -205,14 +205,14 @@
                         <div class="card-body">
                         <label class="mr-4">アレルギー</label>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                                <label class="custom-control-label" for="customRadioInline1">あり</label>
-                                <%= f.radio_button :allergy,id:"customRadioInline1" name:"customRadioInline1" class:"custom-control-input" %> 
-                                <%= f.text_field :allergy, class:"form-control overview", maxlength:"20" %> 
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
                                 <label class="custom-control-label" for="customRadioInline2">なし</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                                <label class="custom-control-label mr-2" for="customRadioInline1">あり</label>
+                                <%= f.radio_button :allergy,'rails_base',id:'customRadioInline1', name:'customRadioInline1', class:'custom-control-input' %> 
+                                <%= f.text_field :allergy, class:"form-control overview", maxlength:"20" %> 
                             </div>
                         </div>
                     <%= f.submit "登録" ,class:"btn btn-facebook btn-block" %>
