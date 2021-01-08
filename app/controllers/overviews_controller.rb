@@ -13,7 +13,13 @@ class OverviewsController < ApplicationController
   end
 
   def create
-    Overview.create(overview_params)
+    @overview = Overview.create(overview_params)
+    if @overview.valid?
+      @overview.save
+      redirect_to root_path
+    else
+      render overviews_path
+    end
   end
 
 
@@ -30,7 +36,7 @@ class OverviewsController < ApplicationController
   end
 
   def overview_params
-    params.require(:overview).merge(user_id: current_user.id)
+    params.require(:overview).permit(:birthday, :allergy, :allergy_type, :cigarette, :cigarette_amout, :alcohol, :alcohol_amount).merge(user_id: current_user.id)
   end
 
   def set_overview
