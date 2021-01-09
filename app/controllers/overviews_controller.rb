@@ -8,6 +8,7 @@ class OverviewsController < ApplicationController
     @overview = Overview.new
     @overviews = Overview.includes(:user).order("created_at DESC")
     @physical = Physical.includes(:user).where.not(physicalfinding_measuring_date:nil).order(physicalfinding_measuring_date: :desc).where(params[:id])
+    @blood = Blood.includes(:user).where.not(blood_urine_test_date:nil).order(blood_urine_test_date: :desc).where(params[:id])
   end
 
   def new
