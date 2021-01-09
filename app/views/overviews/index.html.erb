@@ -241,7 +241,21 @@
                             <div class="custom-control custom-radio custom-control-inline">
                                 <label>
                                     <%= f.radio_button :alcohol, "あり" %> あり
-                                   
+                                    <p>飲酒する頻度</p>
+                                    <%= f.radio_button :alcohol_amount, "月に1度以下" %> 月に1度以下
+                                    <%= f.radio_button :alcohol_amount, "月に2〜4度" %> 月に2〜4度
+                                    <%= f.radio_button :alcohol_amount, "週に2〜3度" %> 週に2〜3度
+                                    <%= f.radio_button :alcohol_amount, "週に4度以上" %> 週に4度以上
+                                    <p>飲酒する量</p>
+                                    <p>2ドリンク：ビール中ビン 1本 or 日本酒 1合弱 or 焼酎（25度）0.5合程度
+                                    　　　　1ドリンク：ワイン 1.6杯程度 or ウイスキーシングル 1杯
+                                    </p>
+                                    <%= f.radio_button :alcohol_amount, "0〜2" %> 0〜2ドリンク
+                                    <%= f.radio_button :alcohol_amount, "3〜4" %> 3〜4ドリンク
+                                    <%= f.radio_button :alcohol_amount, "5〜6" %> 5〜6ドリンク
+                                    <%= f.radio_button :alcohol_amount, "7〜9" %> 7〜9ドリンク
+                                    <%= f.radio_button :alcohol_amount, "それ以上" %> それ以上
+
                                 </label>
                             </div>
                         </div>
