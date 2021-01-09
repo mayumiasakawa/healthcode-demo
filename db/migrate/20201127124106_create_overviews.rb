@@ -8,6 +8,7 @@ class CreateOverviews < ActiveRecord::Migration[6.0]
       t.integer :cigarette
       t.integer :cigarette_amount
       t.integer :alcohol
+      t.integer :alcohol_frequency
       t.integer :alcohol_amount
       t.timestamps
     end

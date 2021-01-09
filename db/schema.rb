@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_062704) do
     t.integer "cigarette"
     t.integer "cigarette_amount"
     t.integer "alcohol"
+    t.integer "alcohol_frequency"
     t.integer "alcohol_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
