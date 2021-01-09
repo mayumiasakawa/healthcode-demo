@@ -62,7 +62,7 @@
                                 <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                         体重・腹囲・BMI
                                 </span>
-                                <% if @overview_physicalfinding_measurings.where(user_id: current_user.id).present? %>
+                                <% if @physical.where(user_id: current_user.id).present? %>
                                     <div class="mt-3">
                                         <%= high_chart("my_chart", @chart) %>
                                     </div>

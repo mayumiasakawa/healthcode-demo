@@ -7,13 +7,13 @@ class OverviewsController < ApplicationController
   def index
     @overview = Overview.new
     @overviews = Overview.includes(:user).order("created_at DESC")
+    @physical = Physical.includes(:user).where.not(physicalfinding_measuring_date:nil).order(physicalfinding_measuring_date: :desc).where(params[:id])
   end
 
   def new
   end
 
   def create
-    binding.pry
     @overview = Overview.create(overview_params)
     if @overview.valid?
       @overview.save
