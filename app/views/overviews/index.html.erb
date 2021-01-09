@@ -209,7 +209,7 @@
                             <%= f.radio_button :allergy, "なし" %> なし </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                            <%= f.radio_button :allergy, "あり" %> あり </label>
+                            <label><%= f.radio_button :allergy, "あり" %> あり </label>
                             <%= f.text_field :allergy_type, class:"form-control overview", maxlength:"20" %>
                             </div>
                         </div>
@@ -217,22 +217,22 @@
                             <label class="mr-4">タバコ</label>
                             <div class="custom-control custom-radio custom-control-inline">
                             <label>
-                            <%= f.radio_button :allergy, "なし" %> なし </label>
+                            <%= f.radio_button :cigarette, "なし" %> なし </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                            <%= f.radio_button :allergy, "あり" %> あり </label>
-                            <%= f.text_field :allergy_type, class:"form-control overview", maxlength:"20" %>
+                            <%= f.radio_button :cigarette, "あり" %> あり </label>
+                            <%= f.text_field :cigarette_amout, class:"form-control overview", maxlength:"20" %>
                             </div>
                         </div>
                         <div class="card-body">
                             <label class="mr-4">お酒</label>
                             <div class="custom-control custom-radio custom-control-inline">
                             <label>
-                            <%= f.radio_button :allergy, "なし" %> なし </label>
+                            <%= f.radio_button :alcohol, "なし" %> なし </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                            <%= f.radio_button :allergy, "あり" %> あり </label>
-                            <%= f.text_field :allergy_type, class:"form-control overview", maxlength:"20" %>
+                            <%= f.radio_button :alcohol, "あり" %> あり </label>
+                            <%= f.text_field :alcohol_amount, class:"form-control overview", maxlength:"20" %>
                             </div>
                         </div>
                     <%= f.submit "登録" ,class:"btn btn-facebook btn-block" %>

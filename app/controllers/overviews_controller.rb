@@ -13,6 +13,7 @@ class OverviewsController < ApplicationController
   end
 
   def create
+    binding.pry
     @overview = Overview.create(overview_params)
     if @overview.valid?
       @overview.save
@@ -25,10 +26,6 @@ class OverviewsController < ApplicationController
 
   private
 
-  def overview_params
-    params.require(:overview).merge(user_id: current_user.id)
-  end
-
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
@@ -36,7 +33,7 @@ class OverviewsController < ApplicationController
   end
 
   def overview_params
-    params.require(:overview).permit(:birthday, :allergy, :allergy_type, :cigarette, :cigarette_amout, :alcohol, :alcohol_amount).merge(user_id: current_user.id)
+    params.require(:overview).permit(:birthday, :allergy, :allergy_type, :cigarette, :cigarette_amount, :alcohol, :alcohol_amount).merge(user_id: current_user.id)
   end
 
   def set_overview
