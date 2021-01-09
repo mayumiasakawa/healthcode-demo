@@ -10,6 +10,7 @@ class OverviewsController < ApplicationController
     @physical = Physical.includes(:user).where.not(physicalfinding_measuring_date:nil).order(physicalfinding_measuring_date: :desc).where(params[:id])
     @blood = Blood.includes(:user).where.not(blood_urine_test_date:nil).order(blood_urine_test_date: :desc).where(params[:id])
     @medicalcare = Medicalcare.includes(:user).where.not(medical_care_date:nil).order(medical_care_date: :desc).where(params[:id])
+    @vaccine = Vaccine.includes(:user).where.not(vaccine_date:nil).order(vaccine_date: :desc).where(params[:id])
   end
 
   def new
