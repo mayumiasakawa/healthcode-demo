@@ -101,7 +101,7 @@
                             <span class="h5 font-weight-bold text-uppercase mb-2">
                                 最終受診歴
                             </span>
-                            <% if @overview_medical_cares.where(user_id: current_user.id).present? %>
+                            <% if @medicalcare.where(user_id: current_user.id).present? %>
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
