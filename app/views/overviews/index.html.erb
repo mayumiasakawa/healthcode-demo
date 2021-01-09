@@ -62,7 +62,7 @@
                                 <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                         体重・腹囲・BMI
                                 </span>
-                                <% if @overview_physicalfinding_measurings.where(user_id: current_user.id).present? %>
+                                <% if @physical.where(user_id: current_user.id).present? %>
                                     <div class="mt-3">
                                         <%= high_chart("my_chart", @chart) %>
                                     </div>
@@ -80,7 +80,7 @@
                                 <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                     採血・採尿
                                 </span>
-                                <% if @overview_blood_urine_tests.where(user_id: current_user.id).present? %>
+                                <% if @blood.where(user_id: current_user.id).present? %>
                                     <div class="font-weight-bold text-uppercase mt-2 mb-2">
                                             最新測定日 <%= @overview_blood_urine_tests.where(user_id: current_user.id).first.blood_urine_test_date %>
                                     </div>                                                               
@@ -101,7 +101,7 @@
                             <span class="h5 font-weight-bold text-uppercase mb-2">
                                 最終受診歴
                             </span>
-                            <% if @overview_medical_cares.where(user_id: current_user.id).present? %>
+                            <% if @medicalcare.where(user_id: current_user.id).present? %>
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
@@ -138,7 +138,7 @@
                             <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                 最終ワクチン接種歴
                             </span>
-                            <% if @overview_vaccines.where(user_id: current_user.id).present? %>
+                            <% if @vaccine.where(user_id: current_user.id).present? %>
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -205,12 +205,15 @@
                         <div class="card-body">
                             <label class="mr-4">アレルギー</label>
                             <div class="custom-control custom-radio custom-control-inline">
-                            <label>
-                            <%= f.radio_button :allergy, "なし" %> なし </label>
+                                <label>
+                                    <%= f.radio_button :allergy, "なし" %> なし
+                                </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                            <label><%= f.radio_button :allergy, "あり" %> あり </label>
-                            <%= f.text_field :allergy_type, class:"form-control overview", maxlength:"20" %>
+                                <label>
+                                    <%= f.radio_button :allergy, "あり" %> あり
+                                    <%= f.text_field :allergy_type, class:"form-control overview", maxlength:"20", placeholder:"スギ花粉、薬の名前など" %>
+                                </label>
                             </div>
                         </div>
                         <div class="card-body">
@@ -220,8 +223,13 @@
                             <%= f.radio_button :cigarette, "なし" %> なし </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                            <%= f.radio_button :cigarette, "あり" %> あり </label>
-                            <%= f.text_field :cigarette_amout, class:"form-control overview", maxlength:"20" %>
+                                <label>
+                                    <%= f.radio_button :cigarette, "あり" %> あり 
+                                    <p>1日に何本吸いますか</p>
+                                    <%= f.radio_button :alcohol_amount, "16本以下" %> 16本以下
+                                    <%= f.radio_button :alcohol_amount, "16〜25本" %> 16〜25本
+                                    <%= f.radio_button :alcohol_amount, "26本以上" %> 26本以上
+                                </label>
                             </div>
                         </div>
                         <div class="card-body">
@@ -231,8 +239,24 @@
                             <%= f.radio_button :alcohol, "なし" %> なし </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                            <%= f.radio_button :alcohol, "あり" %> あり </label>
-                            <%= f.text_field :alcohol_amount, class:"form-control overview", maxlength:"20" %>
+                                <label>
+                                    <%= f.radio_button :alcohol, "あり" %> あり
+                                    <p>飲酒する頻度</p>
+                                    <%= f.radio_button :alcohol_frequency, "月に1度以下" %> 月に1度以下
+                                    <%= f.radio_button :alcohol_frequency, "月に2〜4度" %> 月に2〜4度
+                                    <%= f.radio_button :alcohol_frequency, "週に2〜3度" %> 週に2〜3度
+                                    <%= f.radio_button :alcohol_frequency, "週に4度以上" %> 週に4度以上
+                                    <p>飲酒する量</p>
+                                    <p>2ドリンク：ビール中ビン 1本 or 日本酒 1合弱 or 焼酎（25度）0.5合程度
+                                    　　　　1ドリンク：ワイン 1.6杯程度 or ウイスキーシングル 1杯
+                                    </p>
+                                    <%= f.radio_button :alcohol_amount, "0〜2" %> 0〜2ドリンク
+                                    <%= f.radio_button :alcohol_amount, "3〜4" %> 3〜4ドリンク
+                                    <%= f.radio_button :alcohol_amount, "5〜6" %> 5〜6ドリンク
+                                    <%= f.radio_button :alcohol_amount, "7〜9" %> 7〜9ドリンク
+                                    <%= f.radio_button :alcohol_amount, "それ以上" %> それ以上
+
+                                </label>
                             </div>
                         </div>
                     <%= f.submit "登録" ,class:"btn btn-facebook btn-block" %>
