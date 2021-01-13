@@ -64,7 +64,7 @@
                             <span class="h5 font-weight-bold text-uppercase mb-2">
                                 アルコール
                             </span>
-                            <% if @overviews.alcohol.where(user_id: current_user.id).present? %>
+                            <% if @alcohol.where(user_id: current_user.id).present? %>
                               <div class="font-weight-bold text-uppercase mt-2 mb-2">
                                 アルコールの有無
                               </div>
