@@ -45,7 +45,7 @@
         <% end %>
 
         <% if user_signed_in? %>
-                <%= link_to current_user.last_name  + current_user.first_name + "様", "#", class: "navbar-text mr-2"%>
+                <%= link_to current_user.last_name  + current_user.first_name + "様", "users/#{current_user.id}", class: "navbar-text mr-2"%>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "navbar-text mr-4"%>
             <% else %>          
                 <%= link_to 'ログイン', new_user_session_path, class: "navbar-text mr-2" %>
