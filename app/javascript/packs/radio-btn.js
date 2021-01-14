@@ -1,4 +1,6 @@
 window.addEventListener('load', function(){
-  const selectYes = document.getElementById("yes")
-  console.log(yes)
+  const selectYes = document.getElementById("yes");
+  selectYes.addEventListener('checked', function(){
+    console.log("check OK")
+  })
 })
