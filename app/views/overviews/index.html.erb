@@ -211,7 +211,7 @@
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <label>
-                                    <%= f.radio_button :allergy, "あり" %> あり
+                                    <%= f.radio_button :allergy, "あり",id:"yes" %> あり
                                     <%= f.text_field :allergy_type, class:"form-control overview", maxlength:"20", placeholder:"スギ花粉、薬の名前など" %>
                                 </label>
                             </div>
@@ -224,7 +224,7 @@
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <label>
-                                    <%= f.radio_button :cigarette, "あり" %> あり 
+                                    <%= f.radio_button :cigarette, "あり",id:"yes" %> あり 
                                     <p>1日に何本吸いますか</p>
                                     <%= f.radio_button :alcohol_amount, "16本以下" %> 16本以下
                                     <%= f.radio_button :alcohol_amount, "16〜25本" %> 16〜25本
@@ -240,7 +240,7 @@
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <label>
-                                    <%= f.radio_button :alcohol, "あり" %> あり
+                                    <%= f.radio_button :alcohol, "あり",id:"yes" %> あり
                                     <p>飲酒する頻度</p>
                                     <%= f.radio_button :alcohol_frequency, "月に1度以下" %> 月に1度以下
                                     <%= f.radio_button :alcohol_frequency, "月に2〜4度" %> 月に2〜4度
