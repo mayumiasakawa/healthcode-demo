@@ -21,42 +21,24 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">登録 基本情報</h1>
                     </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="card border-left-success shadow h-100 py-2 md-12 mb-4">
-                            <div class="card-body">
-                                <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
-                                        年齢
-                                </span>
-                                <% if @birthday.where(user_id: current_user.id).present? %>
-                                    <div class="mt-3">
-                                        年齢
-                                    </div>
-                                <% else %>
-                                    <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
-                                    誕生日を登録してね！
-                                    </p>
-                                <% end %> 
-                            </div>
+                    
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="card border-left-info shadow h-100 py-2 md-12 mb-4">
+                        <div class="card-body">
+                            <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
+                                アレルギー
+                            </span>
+                            <% if @allergy.where(user_id: current_user.id).present? %>
+                                <div class="font-weight-bold text-uppercase mt-2 mb-2">
+                                        アレルギーの有無
+                                </div>
+                            <% else %>
+                                <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
+                                    アレルギー登録してね！
+                                </p>
+                            <% end %>
                         </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="card border-left-info shadow h-100 py-2 md-12 mb-4">
-                            <div class="card-body">
-                                <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
-                                    アレルギー
-                                </span>
-                                <% if @allergy.where(user_id: current_user.id).present? %>
-                                    <div class="font-weight-bold text-uppercase mt-2 mb-2">
-                                            アレルギーの有無
-                                    </div>
-                                <% else %>
-                                    <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
-                                        アレルギー登録してね！
-                                    </p>
-                                <% end %>
-                            </div>
-                        </div>            
+                    </div>            
                             
                     <!-- Earnings (Monthly) Card Example -->
                     <div class="card border-left-warning shadow h-100 py-2 md-12 mb-4">
