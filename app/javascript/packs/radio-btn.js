@@ -7,7 +7,7 @@ window.addEventListener('load', function(){
   const cigaretteAmount = document.getElementById("cigarette-amount");
   const alcoholYes = document.getElementById("alcohol-yes");
   const alcoholNo = document.getElementById("alcohol-no");
-  const alcoholAmount = document.getElementById("alcohol-amount");
+  const alcoholFrequency = document.getElementById("alcohol-frequency");
 
 
 
@@ -35,12 +35,12 @@ window.addEventListener('load', function(){
   
   alcoholNo.addEventListener('click',function(){
     if(alcoholNo.checked){
-      alcoholAmount.style.visibility ="hidden";
+      alcoholFrequency.style.visibility ="hidden";
     }
   });
   alcoholYes.addEventListener('click',function(){
     if(alcoholYes.checked){
-      alcoholAmount.style.visibility ="visible";
+      alcoholFrequency.style.visibility ="visible";
     }
   });
 
