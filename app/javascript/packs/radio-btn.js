@@ -1,16 +1,19 @@
 window.addEventListener('load', function(){
-  const selectYes = document.getElementById("yes");
-  const selectNo = document.getElementById("no");
-  const input=document.getElementById("input");
+  const allergyYes = document.getElementById("allergy-yes");
+  const allergyNo = document.getElementById("allergy-no");
+  const allergyInput = document.getElementById("allergy-input");
+  const alcohol_amount = document.getElementById("alcohol_amount");
 
-  selectNo.addEventListener('click',function(){
-    if(selectNo.checked){
-    input.setAttribute("type", "hidden");
+  allergyNo.addEventListener('click',function(){
+    if(allergyNo.checked){
+      allergyInput.style.visibility ="hidden";
+    // alcohol_amount.style.visibility ="hidden";
     }
   });
-  selectYes.addEventListener('click',function(){
-    if(selectYes.checked){
-      input.removeAttribute("type", "hidden");
+  allergyYes.addEventListener('click',function(){
+    if(allergyYes.checked){
+      allergyInput.style.visibility ="visible";
+      // alcohol_amount.style.visibility ="visible";
     }
   });
 
