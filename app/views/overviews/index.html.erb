@@ -206,13 +206,13 @@
                             <label class="mr-4">アレルギー</label>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <label>
-                                    <%= f.radio_button :allergy, "なし" %> なし
+                                    <%= f.radio_button :allergy, "なし",id:"no" %> なし
                                 </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <label>
                                     <%= f.radio_button :allergy, "あり",id:"yes" %> あり
-                                    <%= f.text_field :allergy_type, class:"form-control overview", maxlength:"20", placeholder:"スギ花粉、薬の名前など" %>
+                                    <%= f.text_field :allergy_type, id:"input", class:"form-control overview", maxlength:"20", placeholder:"スギ花粉、薬の名前など" %>
                                 </label>
                             </div>
                         </div>
