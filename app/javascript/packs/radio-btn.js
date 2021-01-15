@@ -9,7 +9,9 @@ window.addEventListener('load', function(){
   const alcoholNo = document.getElementById("alcohol-no");
   const alcoholFrequency = document.getElementById("alcohol-frequency");
 
-
+  allergyInput.style.visibility ="hidden";
+  cigaretteAmount.style.visibility ="hidden";
+  alcoholFrequency.style.visibility ="hidden";
 
   allergyNo.addEventListener('click',function(){
     if(allergyNo.checked){
