@@ -220,16 +220,16 @@
                             <label class="mr-4">タバコ</label>
                             <div class="custom-control custom-radio custom-control-inline">
                             <label>
-                            <%= f.radio_button :cigarette, "なし",id:"alcohol-no" %> なし </label>
+                            <%= f.radio_button :cigarette, "なし",id:"cigarette-no" %> なし </label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
                                 <label>
-                                    <%= f.radio_button :cigarette, "あり",id:"alcohol-yes" %> あり
-                                    <div id="alcohol-amount">
+                                    <%= f.radio_button :cigarette, "あり",id:"cigarette-yes" %> あり
+                                    <div id="cigarette-amount">
                                         <p>1日に何本吸いますか</p>
-                                        <%= f.radio_button :alcohol_amount, "16本以下",id:"input" %> 16本以下
-                                        <%= f.radio_button :alcohol_amount, "16〜25本",id:"input" %> 16〜25本
-                                        <%= f.radio_button :alcohol_amount, "26本以上",id:"input" %> 26本以上
+                                        <%= f.radio_button :cigarette_amount, "16本以下",id:"input" %> 16本以下
+                                        <%= f.radio_button :cigarette_amount, "16〜25本",id:"input" %> 16〜25本
+                                        <%= f.radio_button :cigarette_amount, "26本以上",id:"input" %> 26本以上
                                     </div>
                                 </label>
                             </div>
