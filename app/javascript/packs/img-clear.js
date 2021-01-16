@@ -1,3 +1,5 @@
+if (document.getElementById("img")){
+
 window.addEventListener('load', function(){
 
   const img = document.getElementById("img")
@@ -10,3 +12,5 @@ window.addEventListener('load', function(){
   });
 
 });
+
+}
