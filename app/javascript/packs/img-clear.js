@@ -1,4 +1,5 @@
 window.addEventListener('load', function(){
+  if (document.getElementById("img")){
 
   const img = document.getElementById("img")
   const img_clear = document.getElementById("img_clear")
@@ -9,4 +10,6 @@ window.addEventListener('load', function(){
     imageContent.remove();
   });
 
+}
 });
+
