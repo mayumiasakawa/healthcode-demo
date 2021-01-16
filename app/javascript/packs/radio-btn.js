@@ -1,3 +1,5 @@
+if (document.getElementById("allergy-yes")){
+
 window.addEventListener('load', function(){
   const allergyYes = document.getElementById("allergy-yes");
   const allergyNo = document.getElementById("allergy-no");
@@ -47,3 +49,4 @@ window.addEventListener('load', function(){
   });
 
 })
+}
