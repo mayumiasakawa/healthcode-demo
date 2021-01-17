@@ -244,20 +244,20 @@
                                     <label>
                                         <%= f.radio_button :alcohol, "あり",id:"alcohol-yes" %> あり
                                         <div id="alcohol-frequency">
-                                            <p>飲酒する頻度</p>
-                                            <%= f.radio_button :alcohol_frequency, "月に1度以下" %> 月に1度以下
-                                            <%= f.radio_button :alcohol_frequency, "月に2〜4度" %> 月に2〜4度
-                                            <%= f.radio_button :alcohol_frequency, "週に2〜3度" %> 週に2〜3度
-                                            <%= f.radio_button :alcohol_frequency, "週に4度以上" %> 週に4度以上
-                                            <p>飲酒する量</p>
+                                            <p class="font-weight-bold text-uppercase mb-2">飲酒する頻度</p>
+                                            <p><%= f.radio_button :alcohol_frequency, "月に1度以下" %> 月に1度以下</p>
+                                            <p><%= f.radio_button :alcohol_frequency, "月に2〜4度" %> 月に2〜4度</p>
+                                            <p><%= f.radio_button :alcohol_frequency, "週に2〜3度" %> 週に2〜3度</p>
+                                            <p><%= f.radio_button :alcohol_frequency, "週に4度以上" %> 週に4度以上</p>
+                                            <p class="font-weight-bold text-uppercase mb-2">飲酒する量</p>
                                             <p>2ドリンク：ビール中ビン 1本 or 日本酒 1合弱 or 焼酎（25度）0.5合程度
                                             　　　　1ドリンク：ワイン 1.6杯程度 or ウイスキーシングル 1杯
                                             </p>
-                                            <%= f.radio_button :alcohol_amount, "0〜2" %> 0〜2ドリンク
-                                            <%= f.radio_button :alcohol_amount, "3〜4" %> 3〜4ドリンク
-                                            <%= f.radio_button :alcohol_amount, "5〜6" %> 5〜6ドリンク
-                                            <%= f.radio_button :alcohol_amount, "7〜9" %> 7〜9ドリンク
-                                            <%= f.radio_button :alcohol_amount, "それ以上" %> それ以上
+                                            <p><%= f.radio_button :alcohol_amount, "0〜2" %> 0〜2ドリンク</p>
+                                            <p><%= f.radio_button :alcohol_amount, "3〜4" %> 3〜4ドリンク</p>
+                                            <p><%= f.radio_button :alcohol_amount, "5〜6" %> 5〜6ドリンク</p>
+                                            <p><%= f.radio_button :alcohol_amount, "7〜9" %> 7〜9ドリンク</p>
+                                            <p><%= f.radio_button :alcohol_amount, "それ以上" %> それ以上</p>
                                         </div>
                                     </label>
                                 </div>
@@ -278,10 +278,10 @@
                                     <label>
                                         <%= f.radio_button :cigarette, "あり",id:"cigarette-yes" %> あり
                                         <div id="cigarette-amount">
-                                            <p>1日に何本吸いますか</p>
-                                            <%= f.radio_button :cigarette_amount, "16本以下",id:"input" %> 16本以下
-                                            <%= f.radio_button :cigarette_amount, "16〜25本",id:"input" %> 16〜25本
-                                            <%= f.radio_button :cigarette_amount, "26本以上",id:"input" %> 26本以上
+                                            <p class="font-weight-bold text-uppercase mb-2">1日に何本吸いますか</p>
+                                            <p><%= f.radio_button :cigarette_amount, "16本以下",id:"input" %> 16本以下</p>
+                                            <p><%= f.radio_button :cigarette_amount, "16〜25本",id:"input" %> 16〜25本</p>
+                                            <p><%= f.radio_button :cigarette_amount, "26本以上",id:"input" %> 26本以上</p>
                                         </div>
                                     </label>
                                 </div>
