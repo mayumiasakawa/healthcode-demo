@@ -11,40 +11,40 @@ window.addEventListener('load', function(){
   const alcoholNo = document.getElementById("alcohol-no");
   const alcoholFrequency = document.getElementById("alcohol-frequency");
 
-  allergyInput.style.visibility ="hidden";
-  cigaretteAmount.style.visibility ="hidden";
-  alcoholFrequency.style.visibility ="hidden";
+  allergyInput.style.display ="none";
+  cigaretteAmount.style.display ="none";
+  alcoholFrequency.style.display ="none";
 
   allergyNo.addEventListener('click',function(){
     if(allergyNo.checked){
-      allergyInput.style.visibility ="hidden";
+      allergyInput.style.display ="none";
     }
   });
   allergyYes.addEventListener('click',function(){
     if(allergyYes.checked){
-      allergyInput.style.visibility ="visible";
+      allergyInput.style.display ="block";
     }
   });
   
   cigaretteNo.addEventListener('click',function(){
     if(cigaretteNo.checked){
-      cigaretteAmount.style.visibility ="hidden";
+      cigaretteAmount.style.display ="none";
     }
   });
   cigaretteYes.addEventListener('click',function(){
     if(cigaretteYes.checked){
-      cigaretteAmount.style.visibility ="visible";
+      cigaretteAmount.style.display ="block";
     }
   });
   
   alcoholNo.addEventListener('click',function(){
     if(alcoholNo.checked){
-      alcoholFrequency.style.visibility ="hidden";
+      alcoholFrequency.style.display ="none";
     }
   });
   alcoholYes.addEventListener('click',function(){
     if(alcoholYes.checked){
-      alcoholFrequency.style.visibility ="visible";
+      alcoholFrequency.style.display ="block";
     }
   });
 
