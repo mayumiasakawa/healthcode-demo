@@ -123,11 +123,11 @@
                                             <% end %>
                                         </tbody>
                                     </table>
+                                    <% else %>
+                                        <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
+                                            データを登録してね！
+                                        </p>    
                                 </div>
-                            <% else %>
-                                <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
-                                    データを登録してね！
-                                </p>    
                             <% end %> 
                         </div>
                     </div>
@@ -138,8 +138,8 @@
                             <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                 最終ワクチン接種歴
                             </span>
+                            <div class="table-responsive">
                             <% if @vaccine.where(user_id: current_user.id).present? %>
-                                <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                             <tr class="thead bg-primary bg-gradient text-light">
@@ -156,12 +156,12 @@
                                             <% end %>
                                         </tbody>
                                     </table>
+                                <% else %>
+                                    <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
+                                        データを登録してね！
+                                    </p>                         
                                 </div>
-                            <% else %>
-                                <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
-                                    データを登録してね！
-                                </p>      
-                            <% end %>
+                                <% end %>
                         </div>     
                     </div>
                 </div>
