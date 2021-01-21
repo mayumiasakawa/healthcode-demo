@@ -28,9 +28,9 @@
                             <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                 アレルギー
                             </span>
-                            <% if @allergy.where(user_id: current_user.id).present? %>
+                            <% if @allergy_type.present? %>
                                 <div class="font-weight-bold text-uppercase mt-2 mb-2">
-                                        アレルギーの有無
+                                        <%= @allergy_type %>
                                 </div>
                             <% else %>
                                 <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
