@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @alcohol = @overviews.alcohol
     @alcohol_frequency = @overviews.alcohol_frequency
     @alcohol_amount = @overviews.alcohol_amount
-    @cigarette =  Overview.includes(:user).order(cigarette: :desc).where(params[:id])
+    @cigarette =  @overviews.cigarette
+    @cigarette_amount =  @overviews.cigarette_amount
   end
 end
