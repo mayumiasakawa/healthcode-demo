@@ -3,8 +3,9 @@ class UsersController < ApplicationController
     @overviews = Overview.includes(:user).find(params[:id])
     @birthday =  Overview.includes(:user).order(birthday: :desc).where(params[:id])
     @allergy_type =  @overviews.allergy_type
-    @alcohol =  Overview.includes(:user).order(alcohol: :desc).where(params[:id])
+    @alcohol = @overviews.alcohol
+    @alcohol_frequency = @overviews.alcohol_frequency
+    @alcohol_amount = @overviews.alcohol_amount
     @cigarette =  Overview.includes(:user).order(cigarette: :desc).where(params[:id])
-
   end
 end
