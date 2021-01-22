@@ -28,9 +28,13 @@
                             <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                 アレルギー
                             </span>
-                            <% if @allergy.where(user_id: current_user.id).present? %>
+                            <% if @allergy_ == 0 %>
                                 <div class="font-weight-bold text-uppercase mt-2 mb-2">
-                                        アレルギーの有無
+                                    アレルギーなし 
+                                </div>
+                            <% elsif @allergy_type.present? %>
+                                <div class="font-weight-bold text-uppercase mt-2 mb-2">
+                                        <%= @allergy_type %>
                                 </div>
                             <% else %>
                                 <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
@@ -46,9 +50,14 @@
                             <span class="h5 font-weight-bold text-uppercase mb-2">
                                 アルコール
                             </span>
-                            <% if @alcohol.where(user_id: current_user.id).present? %>
+                            <% if @alcohol == 0 %>
+                                <div class="font-weight-bold text-uppercase mt-2 mb-2">
+                                    アルコール摂取なし 
+                                </div>
+                            <% elsif (@alcohol_frequency && @alcohol_amount).present? %>
                               <div class="font-weight-bold text-uppercase mt-2 mb-2">
-                                アルコールの有無
+                                <%= @alocohol_frequency %>
+                                <%= @alocohol_amount %>
                               </div>
                             <% else %>
                               <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
@@ -64,10 +73,14 @@
                         <span class="h5 font-weight-bold text-uppercase mb-2">
                             タバコ
                         </span>
-                        <% if @cigarette.where(user_id: current_user.id).present? %>
-                          <div class="font-weight-bold text-uppercase mt-2 mb-2">
-                            タバコの有無
-                          </div>
+                        <% if @cigarette == 0 %>
+                            <div class="font-weight-bold text-uppercase mt-2 mb-2">
+                                タバコ摂取なし 
+                            </div>
+                        <% elsif @cigarette.present? %>
+                            <div class="font-weight-bold text-uppercase mt-2 mb-2">
+                            <%= @cigarette_amount %>
+                            </div>
                         <% else %>
                           <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
                             タバコの登録してね！

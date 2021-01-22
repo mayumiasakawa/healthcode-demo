@@ -27,7 +27,6 @@ class OverviewsController < ApplicationController
   end
 
   def show
-    
   end
 
 
