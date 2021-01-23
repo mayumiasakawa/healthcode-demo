@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_062704) do
     t.date "birthday"
     t.integer "allergy"
     t.string "allergy_type"
+    t.string "allergy_symptom"
     t.integer "cigarette"
     t.integer "cigarette_amount"
     t.integer "alcohol"
