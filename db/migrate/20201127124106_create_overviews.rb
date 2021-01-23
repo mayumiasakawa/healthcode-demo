@@ -5,6 +5,7 @@ class CreateOverviews < ActiveRecord::Migration[6.0]
       t.date :birthday
       t.integer :allergy
       t.string :allergy_type
+      t.string :allergy_symptom
       t.integer :cigarette
       t.integer :cigarette_amount
       t.integer :alcohol
