@@ -19,7 +19,8 @@ window.addEventListener('load', function(){
 
   allergyNo.addEventListener('click',function(){
     if(allergyNo.checked){
-      allergyInput.style.display ="none";
+      allergyTypeInput.style.display ="none";
+      allergySymptomInput.style.display ="none";
     }
   });
   allergyYes.addEventListener('click',function(){
