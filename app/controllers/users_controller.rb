@@ -19,6 +19,10 @@ class UsersController < ApplicationController
       end
   end
 
+  def edit
+    @overview = Overview.includes(:user).find(params[:id])
+  end
+
   private
 
   def move_to_index

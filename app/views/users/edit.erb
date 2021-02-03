@@ -1,1 +1,184 @@
-編集画面
+<% unless user_signed_in? %>
+    <div class="bg-gradient-primary">
+       <div class="container">
+           <!-- Outer Row -->
+           <div class="row justify-content-center">
+               <div class="col-xl-10 col-lg-12 col-md-9">
+                   <div class="card o-hidden border-0 shadow-lg my-5">
+                       <div class="card-body p-0">
+                           <!-- Nested Row within Card Body -->
+                           <div class="row">
+                               <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+                               <div class="col-lg-6">
+                                   <div class="p-5">
+                                       <div class="text-center">
+                                           <h1 class="h4 text-gray-900 mb-4">HealthCode</h1>
+                                           <p class="mb-4">自分の身体は自分で管理を</p>
+                                           <p class="mb-4">検診結果、薬歴などをデータ管理しましょう。</p>
+                                       </div>
+                                       <hr>
+                                       <div class="text-center mb-4">
+                                           <%= link_to 'ログイン', new_user_session_path%>
+                                       </div>
+                                       <div class="text-center">
+                                            <%= link_to '新規登録', new_user_registration_path %>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+<% end %>
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+<!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <%= render "shared/header" %>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">基本情報　編集</h1>
+                    </div>
+
+                    <!-- Begin Page Content -->
+                   <div class="container-fluid">
+                        <!-- Earnings (Monthly) Card Example -->
+                        <%= form_with model: @overview, class: 'user', local: true do |f| %>
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="card border-left-info shadow h-100 py-2 md-12 mb-4">
+                                <div class="card-body">
+                                    <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
+                                        アレルギー
+                                    </span>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <label>
+                                        <%= f.radio_button :allergy, "なし",id:"allergy-no" %> なし
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <label>
+                                        <%= f.radio_button :allergy, "あり",id:"allergy-yes" %> あり
+                                        <%= f.text_field :allergy_type, id:"allergy-type-input", class:"form-control overview mt-2 mb-2", maxlength:"80", placeholder:"スギ花粉、薬の名前など" %>
+                                        <%= f.text_field :allergy_symptom, id:"allergy-symptom-input", class:"form-control overview", maxlength:"80", placeholder:"症状　皮疹、痒みなど" %>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="card border-left-success shadow h-100 py-2 md-12 mb-4">
+                                <div class="card-body">
+                                    <span class="h5 font-weight-bold text-uppercase mb-2">
+                                        アルコール
+                                    </span>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline"> 
+                                    <label>
+                                    <%= f.radio_button :alcohol, "なし",id:"alcohol-no" %> なし </label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <label>
+                                        <%= f.radio_button :alcohol, "あり",id:"alcohol-yes" %> あり
+                                        <div id="alcohol-frequency">
+                                            <p class="font-weight-bold text-uppercase mb-2">飲酒する頻度はどのくらいですか</p>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_frequency, "月に1度以下" %> 月に1度以下</p>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_frequency, "月に2〜4度" %> 月に2〜4度</p>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_frequency, "週に2〜3度" %> 週に2〜3度</p>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_frequency, "週に4度以上" %> 週に4度以上</p>
+                                            <p class="font-weight-bold text-uppercase mb-2">飲酒する時はどのくらい飲みますか</p>
+                                            <small class="pl-4">2ドリンク：ビール中ビン 1本 or 日本酒 1合弱 or 焼酎（25度）0.5合程度
+                                            　　　　1ドリンク：ワイン 1.6杯程度 or ウイスキーシングル 1杯
+                                            </small>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_amount, "0〜2" %> 0〜2ドリンク</p>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_amount, "3〜4" %> 3〜4ドリンク</p>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_amount, "5〜6" %> 5〜6ドリンク</p>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_amount, "7〜9" %> 7〜9ドリンク</p>
+                                            <p class="pl-4"><%= f.radio_button :alcohol_amount, "それ以上" %> それ以上</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="card border-left-warning shadow h-100 py-2 md-12 mb-4">
+                                <div class="card-body">
+                                    <span class="h5 font-weight-bold text-uppercase mb-2">
+                                        タバコ
+                                    </span>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <label>
+                                        <%= f.radio_button :cigarette, "なし",id:"cigarette-no" %> なし </label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <label>
+                                        <%= f.radio_button :cigarette, "あり",id:"cigarette-yes" %> あり
+                                        <div id="cigarette-amount">
+                                            <p class="font-weight-bold text-uppercase mb-2">1日に何本吸いますか</p>
+                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "16本以下",id:"input" %> 16本以下</p>
+                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "16〜25本",id:"input" %> 16〜25本</p>
+                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "26本以上",id:"input" %> 26本以上</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        <%= f.submit "登録" ,class:"btn btn-facebook btn-block" %>
+                        <% end %>
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>
+                <!-- End of Main Content --> 
+            </div>
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>

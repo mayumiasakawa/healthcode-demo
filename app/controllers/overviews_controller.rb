@@ -26,6 +26,16 @@ class OverviewsController < ApplicationController
     end
   end
 
+  def update
+    @overview = Overview.includes(:user).find(params[:id])
+    if @overview.update(overview_params)
+      @overview.save
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   def show
   end
 
