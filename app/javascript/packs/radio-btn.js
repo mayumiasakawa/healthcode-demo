@@ -3,7 +3,8 @@ window.addEventListener('load', function(){
   if (document.getElementById("allergy-yes")){
   const allergyYes = document.getElementById("allergy-yes");
   const allergyNo = document.getElementById("allergy-no");
-  const allergyInput = document.getElementById("allergy-input");
+  const allergyTypeInput = document.getElementById("allergy-type-input");
+  const allergySymptomInput = document.getElementById("allergy-symptom-input");
   const cigaretteYes = document.getElementById("cigarette-yes");
   const cigaretteNo = document.getElementById("cigarette-no");
   const cigaretteAmount = document.getElementById("cigarette-amount");
@@ -11,7 +12,8 @@ window.addEventListener('load', function(){
   const alcoholNo = document.getElementById("alcohol-no");
   const alcoholFrequency = document.getElementById("alcohol-frequency");
 
-  allergyInput.style.display ="none";
+  allergyTypeInput.style.display ="none";
+  allergySymptomInput.style.display ="none";
   cigaretteAmount.style.display ="none";
   alcoholFrequency.style.display ="none";
 
@@ -22,7 +24,8 @@ window.addEventListener('load', function(){
   });
   allergyYes.addEventListener('click',function(){
     if(allergyYes.checked){
-      allergyInput.style.display ="block";
+      allergyTypeInput.style.display ="block";
+      allergySymptomInput.style.display ="block";
     }
   });
   
