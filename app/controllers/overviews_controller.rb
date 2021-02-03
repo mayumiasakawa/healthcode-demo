@@ -39,7 +39,7 @@ class OverviewsController < ApplicationController
   end
 
   def overview_params
-    params.require(:overview).permit(:birthday, :allergy, :allergy_type, :cigarette, :cigarette_amount, :alcohol, :alcohol_amount).merge(user_id: current_user.id)
+    params.require(:overview).permit(:birthday, :allergy, :allergy_type, :allergy_symptom, :cigarette, :cigarette_amount, :alcohol, :alcohol_amount).merge(user_id: current_user.id)
   end
 
   def set_overview

@@ -26,11 +26,11 @@
                             <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                 アレルギー
                             </span>
-                            <% if @allergy_ == 0 %>
+                            <% if @allergy == 0 %>
                                 <div class="font-weight-bold text-uppercase mt-2 mb-2">
                                     アレルギーなし 
                                 </div>
-                            <% elsif @allergy_type.present? %>
+                            <% elsif @allergy == 1 %>
                                 <div class="font-weight-bold text-uppercase mt-2 mb-2">
                                         <%= @allergy_type %>
                                 </div>
