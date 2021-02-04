@@ -26,6 +26,16 @@ class OverviewsController < ApplicationController
     end
   end
 
+  def update
+    @overview = Overview.includes(:user).find(params[:id])
+    if @overview.update(overview_params)
+      @overview.save
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   def show
   end
 
@@ -39,7 +49,7 @@ class OverviewsController < ApplicationController
   end
 
   def overview_params
-    params.require(:overview).permit(:birthday, :allergy, :allergy_type, :cigarette, :cigarette_amount, :alcohol, :alcohol_amount).merge(user_id: current_user.id)
+    params.require(:overview).permit(:birthday, :allergy, :allergy_type, :allergy_symptom, :cigarette, :cigarette_amount, :alcohol, :alcohol_amount).merge(user_id: current_user.id)
   end
 
   def set_overview

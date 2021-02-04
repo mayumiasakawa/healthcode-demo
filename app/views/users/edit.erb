@@ -39,147 +39,6 @@
 
 <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
-        <% if user_signed_in? && @overviews.present? %>
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                <%= render "shared/header" %>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">最新情報</h1>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="card border-left-success shadow h-100 py-2 md-12 mb-4">
-                        <div class="card-body">
-                            <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
-                                    体重・腹囲・BMI
-                            </span>
-                            <% if @physical.where(user_id: current_user.id).present? %>
-                                <div class="mt-3">
-                                    <%= high_chart("my_chart", @chart) %>
-                                </div>
-                            <% else %>
-                                <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
-                                データを登録してね！
-                                </p>
-                            <% end %> 
-                        </div>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="card border-left-info shadow h-100 py-2 md-12 mb-4">
-                        <div class="card-body">
-                            <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
-                                採血・採尿
-                            </span>
-                            <% if @blood.where(user_id: current_user.id).present? %>
-                                <div class="font-weight-bold text-uppercase mt-2 mb-2">
-                                        最新測定日 <%= @overview_blood_urine_tests.where(user_id: current_user.id).first.blood_urine_test_date %>
-                                </div>                                                               
-                                <span class="h5 mb-0 font-weight-bold text-gray-800 mr-5">
-                                    <%= image_tag @overview_blood_urine_tests.where(user_id: current_user.id).first.image, class: 'test-image' if @overview_blood_urine_tests.where(user_id: current_user.id).first.image.present? %>                                         
-                                </span>
-                            <% else %>
-                                <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
-                                    データを登録してね！
-                                </p>
-                            <% end %>
-                        </div>
-                    </div>            
-                        
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="card border-left-warning shadow h-100 py-2 md-12 mb-4">
-                        <div class="card-body">
-                            <span class="h5 font-weight-bold text-uppercase mb-2">
-                                最終受診歴
-                            </span>
-                            <% if @medicalcare.where(user_id: current_user.id).present? %>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr class="thead bg-primary bg-gradient text-light">
-                                                <th></th>
-                                                <th>病院名</th>
-                                                <th>病名・診断名</th>
-                                                <th>処置・薬</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% @overview_medical_cares.first(3).each do |overview_medical_care| %>
-                                                <tr>
-                                                    <td><%= overview_medical_care.medical_care_date %></td>
-                                                    <td data-label="病院名"><%= overview_medical_care.clinic_name %></td>
-                                                    <td data-label="病名"><%= overview_medical_care.disease_name %></td>
-                                                    <td data-label="処置・薬"><%= overview_medical_care.treatment_medicine %></td>     
-                                                </tr> 
-                                            <% end %>
-                                        </tbody>
-                                    </table>
-                            <% else %>
-                                    <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
-                                        データを登録してね！
-                                    </p>    
-                                </div>
-                            <% end %> 
-                        </div>
-
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="card border-left-danger shadow h-100 py-2 md-12 mb-4">
-                        <div class="card-body">
-                            <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
-                                最終ワクチン接種歴
-                            </span>
-                            <% if @vaccine.where(user_id: current_user.id).present? %>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr class="thead bg-primary bg-gradient text-light">
-                                                <th>接種日</th>
-                                                <th>種類</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% @overview_vaccines.first(3).each do |overview_vaccine| %>
-                                                <tr>
-                                                    <td><%= overview_vaccine.vaccine_date %></td>
-                                                    <td data-label="種類"><%= overview_vaccine.vaccine.name %></td>
-                                                    <td>
-                                                    <%= link_to edit_overview_path(overview_vaccine.id), method: :get do%>
-                                                        <div class="btn btn-info btn-circle btn-sm"><i class="far fa-edit"></i></div>
-                                                        <div class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash btn-sm"></i></div>
-                                                    <% end %>
-                                                    </td>
-                                                </tr>
-                                            <% end %>
-                                        </tbody>
-                                    </table>
-                            <% else %>
-                                    <p class="h6 font-weight-bold text-uppercase mb-1 mr-2">
-                                        データを登録してね！
-                                    </p>
-                                </div>
-                            <% end %>
-                        </div>     
-                    </div>
-                    
-                    </div>                  
-                </div>
-                <!-- /.container-fluid -->
-                
-            </div>
-            <!-- End of Main Content -->
-
-            <% else %>
                 <!-- Main Content -->
             <div id="content">
 
@@ -192,32 +51,13 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">基本情報　登録</h1>
+                        <h1 class="h3 mb-0 text-gray-800">基本情報　編集</h1>
                     </div>
 
                     <!-- Begin Page Content -->
                    <div class="container-fluid">
                         <!-- Earnings (Monthly) Card Example -->
-                        <%= form_with model: @overview, url: overviews_path,class: 'user', local: true do |f| %>
-                            <div class="card border-left-primary shadow h-100 py-2 md-12 mb-4">
-                                <div class="card-body">
-                                    <span class="h5 font-weight-bold text-uppercase mb-2">
-                                        誕生日
-                                    </span>
-                                </div>
-                                <div class="input-date-wrap ml-3">
-                                    <%= raw sprintf(
-                                            f.date_select(
-                                                :birthday,
-                                                use_month_numbers: true,
-                                                prompt:'--',
-                                                start_year: 1930,
-                                                end_year: (Time.now.year - 5),
-                                                date_separator: '%s'),
-                                            "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-                                </div>
-                            </div>
-
+                        <%= form_with model: @overview, class: 'user', local: true do |f| %>
                             <!-- Earnings (Monthly) Card Example -->
                             <div class="card border-left-info shadow h-100 py-2 md-12 mb-4">
                                 <div class="card-body">
@@ -301,8 +141,7 @@
                     </div>
                     <!-- /.container-fluid -->
                 </div>
-                <!-- End of Main Content -->
-             <% end %> 
+                <!-- End of Main Content --> 
             </div>
 
             <!-- Footer -->
