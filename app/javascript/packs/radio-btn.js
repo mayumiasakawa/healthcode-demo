@@ -32,7 +32,6 @@ window.addEventListener('load', function(){
   
   cigaretteNo.addEventListener('click',function(){
     if(cigaretteNo.checked){
-      cigaretteAmount.checked = "false";
       cigaretteAmount.style.display ="none";
     }
   });
