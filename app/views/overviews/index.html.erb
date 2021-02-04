@@ -226,16 +226,14 @@
                                     </span>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <label>
-                                        <%= f.radio_button :allergy, "なし",id:"allergy-no" %> なし
-                                    </label>
+                                    <%= f.radio_button :allergy, "なし",id:"allergy-no" %> なし
+                                    <%= f.label :allergy-no, "なし" %>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <label>
-                                        <%= f.radio_button :allergy, "あり",id:"allergy-yes" %> あり
-                                        <%= f.text_field :allergy_type, id:"allergy-type-input", class:"form-control overview mt-2 mb-2", maxlength:"80", placeholder:"スギ花粉、薬の名前など" %>
-                                        <%= f.text_field :allergy_symptom, id:"allergy-symptom-input", class:"form-control overview", maxlength:"80", placeholder:"症状　皮疹、痒みなど" %>
-                                    </label>
+                                    <%= f.radio_button :allergy, "あり",id:"allergy-yes" %>
+                                    <%= f.label :allergy-yes, "あり" %>
+                                    <%= f.text_field :allergy_type, id:"allergy-type-input", class:"form-control overview mt-2 mb-2", maxlength:"80", placeholder:"スギ花粉、薬の名前など" %>
+                                    <%= f.text_field :allergy_symptom, id:"allergy-symptom-input", class:"form-control overview", maxlength:"80", placeholder:"症状　皮疹、痒みなど" %>
                                 </div>
                             </div>
 
@@ -247,12 +245,12 @@
                                     </span>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline"> 
-                                    <label>
-                                    <%= f.radio_button :alcohol, "なし",id:"alcohol-no" %> なし </label>
+                                    <%= f.radio_button :alcohol, "なし",id:"alcohol-no" %>
+                                    <%= f.label :alcohol-no, "なし" %>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <label>
-                                        <%= f.radio_button :alcohol, "あり",id:"alcohol-yes" %> あり
+                                        <%= f.radio_button :alcohol, "あり",id:"alcohol-yes" %>
+                                        <%= f.label :alcohol-yes, "あり" %>
                                         <div id="alcohol-frequency">
                                             <p class="font-weight-bold text-uppercase mb-2">飲酒する頻度はどのくらいですか</p>
                                             <p class="pl-4"><%= f.radio_button :alcohol_frequency, "月に1度以下" %> 月に1度以下</p>
@@ -269,7 +267,6 @@
                                             <p class="pl-4"><%= f.radio_button :alcohol_amount, "7〜9" %> 7〜9ドリンク</p>
                                             <p class="pl-4"><%= f.radio_button :alcohol_amount, "それ以上" %> それ以上</p>
                                         </div>
-                                    </label>
                                 </div>
                             </div>
 
@@ -281,19 +278,18 @@
                                     </span>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <label>
-                                        <%= f.radio_button :cigarette, "なし",id:"cigarette-no" %> なし </label>
+                                    <%= f.radio_button :cigarette, "なし",id:"cigarette-no" %>
+                                    <%= f.label :cigarette-no, "なし" %>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <label>
-                                        <%= f.radio_button :cigarette, "あり",id:"cigarette-yes" %> あり
+                                        <%= f.radio_button :cigarette, "あり",id:"cigarette-yes" %>
+                                        <%= f.label :cigarette-yes, "あり" %>
                                         <div id="cigarette-amount">
                                             <p class="font-weight-bold text-uppercase mb-2">1日に何本吸いますか</p>
-                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "16本以下",id:"input" %> 16本以下</p>
-                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "16〜25本",id:"input" %> 16〜25本</p>
-                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "26本以上",id:"input" %> 26本以上</p>
+                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "16本以下" %> 16本以下</p>
+                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "16〜25本" %> 16〜25本</p>
+                                            <p class="pl-4"><%= f.radio_button :cigarette_amount, "26本以上" %> 26本以上</p>
                                         </div>
-                                    </label>
                                 </div>
                             </div>
                         <%= f.submit "登録" ,class:"btn btn-facebook btn-block" %>
