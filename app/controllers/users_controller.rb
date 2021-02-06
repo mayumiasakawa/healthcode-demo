@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :move_to_index
 
   def show
-      @overview = Overview.includes(:user).where(params[:id])
+      @overview = Overview.includes(:user).find(params[:id])
       if @overview.present?
         @birthday =  Overview.includes(:user).order(birthday: :desc).where(params[:id])
         @allergy =  @overview.allergy
