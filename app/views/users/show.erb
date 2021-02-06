@@ -18,7 +18,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">登録 基本情報
-                            <%= link_to edit_user_path(@overviews.id), method: :get do%>
+                            <%= link_to edit_user_path(@overview.id), method: :get do%>
                                 <div class="btn btn-info btn-circle"><i class="far fa-edit"></i></div>
                             <% end %>
                         </h1>
@@ -30,11 +30,11 @@
                             <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                 アレルギー
                             </span>
-                            <% if @overview.includes(:user).where(allergy:0).where(current_user.id) %>
+                            <% if @overview.allergy == 0 %>
                                 <div class="font-weight-bold text-uppercase mt-2 mb-2">
                                     アレルギーなし 
                                 </div>
-                            <% elsif  @overview.includes(:user).where(allergy:1).where(current_user.id) %>
+                            <% elsif  @overview.allergy == 1 %>
                                 <div class="font-weight-bold text-uppercase mt-2 mb-2">
                                         <%= @allergy_type %>
                                 </div>
