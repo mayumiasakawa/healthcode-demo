@@ -30,11 +30,11 @@
                             <span class="h5 font-weight-bold text-uppercase mb-1 mr-2">
                                 アレルギー
                             </span>
-                            <% if @allergy == 0 %>
+                            <% if @overview.includes(:user).where(allergy:0).where(current_user.id) %>
                                 <div class="font-weight-bold text-uppercase mt-2 mb-2">
                                     アレルギーなし 
                                 </div>
-                            <% elsif @allergy == 1 %>
+                            <% elsif  @overview.includes(:user).where(allergy:1).where(current_user.id) %>
                                 <div class="font-weight-bold text-uppercase mt-2 mb-2">
                                         <%= @allergy_type %>
                                 </div>
