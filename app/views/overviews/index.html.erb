@@ -248,11 +248,11 @@
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline"> 
                                     <label>
-                                    <%= f.radio_button :alcohol, "なし", "0", id:"alcohol-no" %> なし </label>
+                                    <%= f.radio_button :alcohol, "なし", id:"alcohol-no" %> なし </label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <label>
-                                        <%= f.radio_button :alcohol, "あり", "1", id:"alcohol-yes" %> あり
+                                        <%= f.radio_button :alcohol, "あり", id:"alcohol-yes" %> あり
                                         <div id="alcohol-frequency">
                                             <p class="font-weight-bold text-uppercase mb-2">飲酒する頻度はどのくらいですか</p>
                                             <p class="pl-4"><%= f.radio_button :alcohol_frequency, "月に1度以下" %> 月に1度以下</p>
